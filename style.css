@@ -148,7 +148,7 @@ ol, ul { list-style: none; }
   align-items: center;
   background:
     linear-gradient(100deg, rgba(30,47,79,0.88) 0%, rgba(30,47,79,0.55) 55%, rgba(30,47,79,0.35) 100%),
-    url('imagem-fundo-hero.jpeg') center/cover no-repeat;
+    url('imgs/imagem-fundo-hero.jpeg') center/cover no-repeat;
 }
 
 .hero-content {
