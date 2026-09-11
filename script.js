@@ -79,8 +79,35 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeProposalModal();
 });
 
-propostaForm.addEventListener('submit', (e) => {
+const propostaStatus = document.getElementById('propostaStatus');
+const propostaSubmitBtn = propostaForm.querySelector('.form-submit');
+
+propostaForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  closeProposalModal();
-  propostaForm.reset();
+  propostaSubmitBtn.disabled = true;
+  propostaStatus.textContent = 'Enviando...';
+  propostaStatus.classList.remove('is-error', 'is-success');
+
+  try {
+    const response = await fetch(propostaForm.action, {
+      method: 'POST',
+      body: new FormData(propostaForm),
+      headers: { Accept: 'application/json' },
+    });
+
+    if (response.ok) {
+      propostaStatus.textContent = 'Proposta enviada! Em breve entraremos em contato.';
+      propostaStatus.classList.add('is-success');
+      propostaForm.reset();
+      setTimeout(closeProposalModal, 1800);
+    } else {
+      propostaStatus.textContent = 'Não foi possível enviar. Tente novamente ou fale com a gente pelo WhatsApp.';
+      propostaStatus.classList.add('is-error');
+    }
+  } catch (err) {
+    propostaStatus.textContent = 'Não foi possível enviar. Verifique sua conexão e tente novamente.';
+    propostaStatus.classList.add('is-error');
+  } finally {
+    propostaSubmitBtn.disabled = false;
+  }
 });

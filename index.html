@@ -235,7 +235,8 @@
         <p class="modal-desc">Conte sobre a sua operação. É super simples e você recebe uma resposta em até 2h.</p>
       </div>
       <div class="modal-right">
-        <form class="proposal-form" id="propostaForm">
+        <form class="proposal-form" id="propostaForm" action="https://formspree.io/f/SEU_FORM_ID" method="POST">
+          <input type="hidden" name="_subject" value="Nova proposta - ZAX LOG">
           <div class="form-field">
             <label for="propNome">Nome</label>
             <input type="text" id="propNome" name="nome" required>
@@ -249,7 +250,7 @@
             <input type="tel" id="propWhats" name="whatsapp" placeholder="(00) 00000-0000">
           </div>
           <div class="form-field">
-            <label for="propQtd">Quantidade mensal de pedidos</label>
+            <label for="propQtd">Quantidade de pallets inicial</label>
             <input type="text" id="propQtd" name="quantidade">
           </div>
           <button type="submit" class="form-submit">
@@ -257,6 +258,7 @@
             <span aria-hidden="true">↗</span>
           </button>
           <p class="form-note"><span aria-hidden="true">◇</span> Sem compromisso.</p>
+          <p class="form-status" id="propostaStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
