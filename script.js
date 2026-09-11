@@ -79,8 +79,16 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeProposalModal();
 });
 
-propostaForm.addEventListener('submit', (e) => {
+propostaForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  closeProposalModal();
-  propostaForm.reset();
+  try {
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(propostaForm)).toString(),
+    });
+  } finally {
+    closeProposalModal();
+    propostaForm.reset();
+  }
 });

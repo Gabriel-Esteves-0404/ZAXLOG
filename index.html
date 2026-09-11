@@ -235,7 +235,11 @@
         <p class="modal-desc">Conte sobre a sua operação. É super simples e você recebe uma resposta em até 2h.</p>
       </div>
       <div class="modal-right">
-        <form class="proposal-form" id="propostaForm">
+        <form class="proposal-form" id="propostaForm" name="simulacao" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="simulacao" />
+          <p class="hidden" style="display:none;">
+            <label>Não preencha isto se for humano: <input name="bot-field" /></label>
+          </p>
           <div class="form-field">
             <label for="propNome">Nome</label>
             <input type="text" id="propNome" name="nome" required>
@@ -250,7 +254,7 @@
           </div>
           <div class="form-field">
             <label for="propQtd">Quantidade mensal de pedidos</label>
-            <input type="text" id="propQtd" name="quantidade">
+            <input type="text" id="propQtd" name="quantidade_pedidos">
           </div>
           <button type="submit" class="form-submit">
             <span>Simular agora e garantir 20% OFF</span>
