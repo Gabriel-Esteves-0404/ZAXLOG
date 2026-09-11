@@ -91,11 +91,12 @@ ol, ul { list-style: none; }
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
+  min-width: 0;
   grid-column: 1;
   justify-self: start;
 }
 .logo-mark {
-  height: 44px;
+  height: 42px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -104,7 +105,8 @@ ol, ul { list-style: none; }
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
   letter-spacing: 1px;
-  font-size: 34px;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  white-space: nowrap;
   color: #1fa855;
 }
 .logo-text.light { color: #2ecc71; }
@@ -467,6 +469,11 @@ ol, ul { list-style: none; }
   .feature-bar { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; }
+}
+
+@media (max-width: 768px) {
+  .logo-text { font-size: 1rem; }
+  .logo-mark { height: 32px; }
 }
 
 /* ===== MODAL PROPOSTA ===== */
