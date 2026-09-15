@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZAX LOG — Logística & Armazenagem</title>
+<link rel="icon" type="image/png" href="imgs/aguia-crop.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Poppins:wght@800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -235,7 +236,7 @@
         <p class="modal-desc">Conte sobre a sua operação. É super simples e você recebe uma resposta em até 2h.</p>
       </div>
       <div class="modal-right">
-        <form class="proposal-form" id="propostaForm" name="simulacao" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form class="proposal-form" id="propostaForm" name="simulacao" method="POST" netlify netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="simulacao" />
           <p class="hidden" style="display:none;">
             <label>Não preencha isto se for humano: <input name="bot-field" /></label>
@@ -261,6 +262,7 @@
             <span aria-hidden="true">↗</span>
           </button>
           <p class="form-note"><span aria-hidden="true">◇</span> Sem compromisso.</p>
+          <p class="form-status" id="propostaStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
