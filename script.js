@@ -97,6 +97,11 @@ propostaForm.addEventListener('submit', async (e) => {
       propostaForm.reset();
       propostaStatus.textContent = 'Proposta enviada! Em breve entraremos em contato.';
       propostaStatus.classList.add('is-success');
+      gtag('event', 'conversion', {
+          'send_to': 'AW-18455762748/cpXDCMGsjvocELyusuBE',
+          'value': 1.0,
+          'currency': 'BRL'
+      });
       setTimeout(closeProposalModal, 1800);
     } else {
       propostaStatus.textContent = 'Não foi possível enviar. Tente novamente ou fale com a gente pelo WhatsApp.';
